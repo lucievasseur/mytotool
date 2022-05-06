@@ -1,0 +1,98 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mytotool{% endblock %}
+
+{% block body %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3 left-column">
+                <div class="row p-5 m-4 bloc-mon-compte">
+                    <div class="col-2">
+                        <img src="../../public/assets/photo-compte.jpg">
+                    </div>
+                    <div class="col-10 dropdown">
+                        <button class="btn dropdown-toggle mon-compte" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Mon compte
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item">Adresse e-mail</a>
+                            <a class="dropdown-item" href="/logout">Se déconnecter</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <ul id="list">
+                        {% for listeTaches in listeTaches %}
+                            <li class="li-left-column mt-4">
+                                <div class="col-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                         class="bi bi-list" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                              d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                                    </svg>
+                                </div>
+                                <div class="col-10 list-left-column">
+                                    <a href="{{ path('afficher_tache', {listId: listeTaches.id}) }}">{{ listeTaches.nom }}</a>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <hr>
+
+                <!-- Button trigger modal -->
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Créer une liste
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Creer une liste</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="text" id="createList" aria-label="Nom" placeholder="Nom"
+                                       class="form-control">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" id="closeModal"
+                                        data-bs-dismiss="modal">
+                                    Fermer
+                                </button>
+                                <button type="button" id="saveCreateList" class="btn">Créer liste
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-9 right-column">
+                {% for listeTache in listeTaches %}
+                    <div class="row bloc-liste m-3 p-3">
+                        <h2 class="col-12">{{ listeTache.nom }}</h2>
+                        <ul>
+                            {% for tache in listeTache.taches %}
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        {{ tache.titre }}
+                                    </label>
+                                </div>
+                            {% endfor %}
+                        </ul>
+                        <h3 class="col-12">Ajouter tâche</h3>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

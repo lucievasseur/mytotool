@@ -1,0 +1,112 @@
+/*Colonne de gauche*/
+
+.left-column {
+    background-color: #EFCC55;
+}
+
+.bloc-mon-compte {
+    background-color: #FFFFFF;
+    border-radius: 70px;
+}
+
+.list-left-column {
+    font-family: 'koulen', serif;
+}
+
+.list-left-column > a {
+    color: #FFFFFF;
+    font-size: 22px;
+    position: relative;
+}
+
+.list-left-column > a::after {
+    position: absolute;
+    content:"";
+    display: block;
+    height: 10px;
+    width: 50px;
+    background-color: #000000;
+    opacity: 0.33;
+    bottom: 10px;
+    z-index: 0;
+}
+
+li.li-left-column {
+    display: flex;
+}
+
+.bi-list {
+    color: #FFFFFF;
+}
+
+.btn {
+    font-family: 'montserrat', serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+#saveCreateList {
+    background-color: #EFCC55;
+}
+
+.modal-title {
+    font-family: 'koulen', serif;
+}
+
+#createList {
+    font-family: 'montserrat', serif;
+}
+
+/*Colonne de droite*/
+
+.right-column {
+    background-image:url(../assets/email-pattern.jpg);
+}
+
+.bloc-liste {
+    background-color: #FFFFFF;
+    border-radius: 70px;
+}
+
+/*Général*/
+
+h2{
+    position: relative;
+    font-family: 'koulen', serif;
+}
+
+h2::before{
+    position: absolute;
+    content:"";
+    display: block;
+    height: 10px;
+    width: 100px;
+    background-color: #EFCC55;
+    bottom: 10px;
+    z-index: 1;
+    mix-blend-mode: multiply;
+}
+
+h3 {
+    font-family: 'montserrat', serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #000000;
+    font-size: 15px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+p {
+    font-family: 'montserrat', serif;
+}
+
+.mon-compte {
+    font-family: 'righteous', serif;
+    text-transform: uppercase;
+    font-size: 25px;
+    color: #000000;
+}
